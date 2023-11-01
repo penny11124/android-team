@@ -1,0 +1,10 @@
+title UREKA on Ethereum
+
+participant Seller
+
+Seller->(1)Contract:Contract creation 
+Contract(1)<-Buyer:Purchase item
+Seller->(1)Contract:U Ticket
+Contract->(1)Buyer:U Ticket
+Buyer->(1)Contract:R Ticket
+Contract->(1)Seller:R Ticket

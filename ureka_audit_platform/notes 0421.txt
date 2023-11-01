@@ -1,0 +1,2 @@
+let contract = await UREKA_sale.at();
+await contract.purchase({from: accounts[1], value:"2000000000000000000"});

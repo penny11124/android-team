@@ -1,0 +1,16 @@
+{
+  "name": "ureka-client",
+  "version": "1.0.0",
+  "description": "client for ureka on ethereum",
+  "main": "index.js",
+  "scripts": {
+    "test": "node seller.js"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "abi-decoder": "^2.4.0",
+    "prompts": "^2.4.1",
+    "readline-sync": "^1.4.10"
+  }
+}

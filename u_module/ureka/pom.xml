@@ -1,0 +1,115 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.logos</groupId>
+  <artifactId>ureka</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>ureka</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target> -->
+    <!-- <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version> -->
+
+    <jmh.version>1.36</jmh.version>
+
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <release>11</release>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <finalName>Command_Line_Program</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
+          <archive>
+            <manifest>
+              <mainClass>com.logos.UrekaApp</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>directory-single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <!-- <dependencyManagement> -->
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <artifactId>protocol</artifactId>
+      <groupId>org.fidoalliance.fdo</groupId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <artifactId>cert-utils</artifactId>
+      <groupId>org.fidoalliance.fdo</groupId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjdk.jmh</groupId>
+      <artifactId>jmh-core</artifactId>
+      <version>${jmh.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openjdk.jmh</groupId>
+      <artifactId>jmh-generator-annprocess</artifactId>
+      <version>${jmh.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- <dependency>
+      <groupId>it.tangodev</groupId>
+      <artifactId>ble</artifactId>
+    <version>1.0</version>
+      <scope>system</scope>
+    <systemPath>${project.basedir}/src/main/lib/ble-java-0.1.jar</systemPath>
+    </dependency> -->
+    <!-- <dependency>
+      <groupId>org.freedesktop.dbus</groupId>
+    <artifactId>dbus-java</artifactId>
+      <version>2.7.0</version>
+      <scope>system</scope>
+    <systemPath>${project.basedir}/src/main/lib/dbus-java-2.7.0.jar</systemPath>
+    </dependency> -->
+    <!-- <dependency>
+      <groupId>org.freedesktop.dbus</groupId>
+    <artifactId>dbus-java</artifactId>
+      <version>2.7.0</version>
+    </dependency> -->
+    <!-- <dependency>
+      <artifactId>fdo</artifactId>
+      <groupId>org.fidoalliance</groupId>
+    <version>1.0-SNAPSHOT</version>
+    </dependency> -->
+  </dependencies>
+  <!-- </dependencyManagement> -->
+
+</project>

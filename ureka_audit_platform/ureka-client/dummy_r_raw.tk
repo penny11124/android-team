@@ -1,0 +1,6 @@
+ticket_protocol_verision: UREKA-1.0
+ticket_type: RETURN
+device_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAE2JdiHAmdL4_djLkCBr36axKHDyknhghZ
+holder_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEL-mMsJiEDNcDuUKDrk2wDzh8rl40jmCs
+response_body: {"{REQUEST-TICKET-TYPE": "MANAGEMENT", "DEVICE-STATUS": "SUCCESS"}
+issuer_signature: MEQCIHSs2YnuH65Vyk642ZRnHA_XVDfcWEUcqHZcPRRDg9RDAiB5NuW3hFuBHKfpvR4xShFkgKvqhDnaFqfEy0XMIp1BVA==

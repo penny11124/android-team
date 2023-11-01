@@ -1,0 +1,23 @@
+ Receive: < (Ticket Object) >
+         ticket_protocol_verision: UREKA-1.0
+         ticket_type: MANAGEMENT
+         device_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAE2JdiHAmdL4_djLkCBr36axKHDyknhghZ
+         holder_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEL-mMsJiEDNcDuUKDrk2wDzh8rl40jmCs
+         request_body: {"MANAGEMENT-TYPE": "NEW-OWNER"}
+         issuer_signature: MEQCIHSs2YnuH65Vyk642ZRnHA_XVDfcWEUcqHZcPRRDg9RDAiB5NuW3hFuBHKfpvR4xShFkgKvqhDnaFqfEy0XMIp1BVA==
+(Z-1) PASS: TICKET_PROTOCOL_VERSION (UREKA-1.0)
+(Z-2) PASS: TYPE_MANAGEMENT_TICKET
+(Z-3) PASS: DEVICE_ID
+(Z-4) PASS: ISSUER_SIGNATURE on MANAGEMENT_TICKET
+(E-Z) EXECUTE: MANAGEMENT_TICKET
+ownership_transfer( )...
+request_body_dict = {'MANAGEMENT-TYPE': 'NEW-OWNER'}
+####################################################################################################################################################
+
+
+
+Z1 static
+Z2 static
+Z3 by input (holder_id)
+Z4 by signing result(issuer_signature)
+E-Z request_body static

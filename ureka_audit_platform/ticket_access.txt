@@ -1,0 +1,102 @@
++++ Ticket module <private_authenticator_1> has been initailized +++
+####################################################################################################################################################
+module_type: PRIVATE_ANTHENTICATOR
+
+device_priv_key_str: MIGEAgEAMBAGByqGSM49AgEGBSuBBAAKBG0wawIBAQQgV1X2YyjLUM9oDQI6jTyc
+device_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEL-mMsJiEDNcDuUKDrk2wDzh8rl40jmCs
+####################################################################################################################################################
+
++++ Ticket module <private_authenticator_2> has been initailized +++
+####################################################################################################################################################
+module_type: PRIVATE_ANTHENTICATOR
+
+device_priv_key_str: MIGEAgEAMBAGByqGSM49AgEGBSuBBAAKBG0wawIBAQQg33XzZ5JVQRLCzTeOkqZF
+device_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEGmzC5GHjHmKma_pxGyWgUqjFQno2Ce-B
+####################################################################################################################################################
+
++++ Ticket module <iot_device_1> has been initailized +++
+####################################################################################################################################################
+module_type: IOT_DEVICE
+
+device_priv_key_str: MIGEAgEAMBAGByqGSM49AgEGBSuBBAAKBG0wawIBAQQg_lhIGNiI2MzoGhAgQf4y
+device_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAE2JdiHAmdL4_djLkCBr36axKHDyknhghZ
+
+owner_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEL-mMsJiEDNcDuUKDrk2wDzh8rl40jmCs
+####################################################################################################################################################
+
+
+------------------------------------
+private_authenticator_1
+------------------------------------
+Access...
+resource_tree_str = {"CLOSE-DOOR": "1", "DOOR-LOG": "1", "OPEN-DOOR": "1"}
+request_body_str = {"RESOURCE-TREE": "{\"CLOSE-DOOR\": \"1\", \"DOOR-LOG\": \"1\", \"OPEN-DOOR\": \"1\"}"}
+
+------------------------------------
+iot_device_1
+------------------------------------
+Receive: < (Ticket Object) >
+         ticket_protocol_verision: UREKA-1.0
+         ticket_type: ACCESS-PERMISSION
+         device_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAE2JdiHAmdL4_djLkCBr36axKHDyknhghZ
+         holder_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEL-mMsJiEDNcDuUKDrk2wDzh8rl40jmCs
+         request_body: {"RESOURCE-TREE": "{\"CLOSE-DOOR\": \"1\", \"DOOR-LOG\": \"1\", \"OPEN-DOOR\": \"1\"}"}
+         issuer_signature: MEYCIQCF_bhHn9Wfa5LBbBpLwhk4sOslUKKLJrjY5uxJ6fARJQIhAMcqOzEnFWGnuVnW9y8WowjxOKq04B-_DBV1dRZqEU8Z
+(Z-1) PASS: TICKET_PROTOCOL_VERSION (UREKA-1.0)
+(Z-2) PASS: TYPE_ACCESS_PERMISSION_TICKET
+(Z-3) PASS: DEVICE_ID
+(Z-4) PASS: ISSUER_SIGNATURE on ACCESS_PERMISSION_TICKET
+(E-Z) EXECUTE: ACCESS_PERMISSION_TICKET
+generate_challenge_ticket( )...
+
+------------------------------------
+private_authenticator_1
+------------------------------------
+Receive: < (Ticket Object) >
+         ticket_protocol_verision: UREKA-1.0
+         ticket_type: CHALLENGE
+         device_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAE2JdiHAmdL4_djLkCBr36axKHDyknhghZ
+         holder_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEL-mMsJiEDNcDuUKDrk2wDzh8rl40jmCs
+         request_body: tfioWAi6tsJmm5e8CfS5WrmzzktV-rU1repFaQm04oM=
+         issuer_signature: MEYCIQDUScRbRjopeGvOy2NMZoPwIkxQaBD2J4F69wNkB4_7UgIhAOfV5T7vq1VPnTJ1ClCNNBwCi287Z77leDi94gHXw98w
+(Z-1) PASS: TICKET_PROTOCOL_VERSION (UREKA-1.0)
+(Z-2) PASS: TYPE_CHALLENGE_TICKET
+(Z-3) PASS: DEVICE_ID
+(N-2) PASS: ISSUER_SIGNATURE on CHALLENGE_TICKET
+(E-N) EXECUTE: CHALLENGE_TICKET
+generate_response_ticket( )...
+
+------------------------------------
+iot_device_1
+------------------------------------
+Receive: < (Ticket Object) >
+         ticket_protocol_verision: UREKA-1.0
+         ticket_type: RESONSE
+         device_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAE2JdiHAmdL4_djLkCBr36axKHDyknhghZ
+         holder_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEL-mMsJiEDNcDuUKDrk2wDzh8rl40jmCs
+         issuer_signature: MEUCIAV4aE05WheN9tpP3-wxKAYziNHeVZsyM18HLSMgGaN_AiEA3T00fx32pB9IE0-WnqJcKDs5_lzp1-CwZdT2TDijdt8=
+(Z-1) PASS: TICKET_PROTOCOL_VERSION (UREKA-1.0)
+(Z-2) PASS: TYPE_RESONSE_TICKET
+(Z-3) PASS: DEVICE_ID
+(N-3) PASS: ISSUER_SIGNATURE on RESONSE_TICKET
+(E-N) EXECUTE: RESONSE_TICKET
+generate_key_exchange_ticket( )...
+session_key: b'\xf3\x1c\x896\x1ao\xd64s=\x9f!(\xac\xaar.e\xd6\x00\xb1KL\xf3:\x0b\xa9.\x8d\xca\x1a5'
+
+------------------------------------
+private_authenticator_1
+------------------------------------
+Receive: < (Ticket Object) >
+         ticket_protocol_verision: UREKA-1.0
+         ticket_type: KEY-EXCHANGE
+         device_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAE2JdiHAmdL4_djLkCBr36axKHDyknhghZ
+         holder_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEL-mMsJiEDNcDuUKDrk2wDzh8rl40jmCs
+         request_body: 58r9TtH8mKP2j3UqzClzYY8jMHnqf2l9WXtaZK2QyEE=
+         issuer_signature: MEYCIQC4BZnRp4RpPRvWUyFGytc5qqWSnm_OD1TawHL5jnUBmwIhAME2DiGVP9Yju_0nTCbPT9VOJ8tcpAiVBc_IH7lm3Noy
+(Z-1) PASS: TICKET_PROTOCOL_VERSION (UREKA-1.0)
+(Z-2) PASS: TYPE_KEY_EXCHANGE_TICKET
+(Z-3) PASS: DEVICE_ID
+(N-4) PASS: ISSUER_SIGNATURE on KEY_EXCHANGE_TICKET
+(E-N) EXECUTE: KEY_EXCHANGE_TICKET
+session_key: b'\xf3\x1c\x896\x1ao\xd64s=\x9f!(\xac\xaar.e\xd6\x00\xb1KL\xf3:\x0b\xa9.\x8d\xca\x1a5'
+generate_command_ticket( )...

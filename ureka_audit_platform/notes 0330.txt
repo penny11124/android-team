@@ -1,0 +1,19 @@
+What does the blockchain does:
+1. Appeals
+2. Payment flow  (money)
+3. Authorization (ticket)
+
+6 functions:
+constructor()
+purchase
+rent
+buyer return
+seller terminate
+seller modify
+
+TX flow:
+1. deploy
+2a. purchase
+2b. rent
+3a. buyer return
+3b. seller terminate

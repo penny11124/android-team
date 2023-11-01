@@ -1,0 +1,13 @@
+migration steps
+
+
+
+Current python procedure:
+
+keccak-256(json string) 得 digest，簽digest得signature
+透過對比json string及signature驗證
+
+
+
+Ethereum sign/verify
+

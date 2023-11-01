@@ -1,0 +1,43 @@
++++ Ticket module <private_authenticator_1> has been initailized +++
+####################################################################################################################################################
+module_type: PRIVATE_ANTHENTICATOR
+
+device_priv_key_str: MIGEAgEAMBAGByqGSM49AgEGBSuBBAAKBG0wawIBAQQgV1X2YyjLUM9oDQI6jTyc
+device_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEL-mMsJiEDNcDuUKDrk2wDzh8rl40jmCs
+####################################################################################################################################################
+
++++ Ticket module <private_authenticator_2> has been initailized +++
+####################################################################################################################################################
+module_type: PRIVATE_ANTHENTICATOR
+
+device_priv_key_str: MIGEAgEAMBAGByqGSM49AgEGBSuBBAAKBG0wawIBAQQg33XzZ5JVQRLCzTeOkqZF
+device_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEGmzC5GHjHmKma_pxGyWgUqjFQno2Ce-B
+####################################################################################################################################################
+
++++ Ticket module <iot_device_1> has been initailized +++
+####################################################################################################################################################
+module_type: IOT_DEVICE
+
+device_priv_key_str: MIGEAgEAMBAGByqGSM49AgEGBSuBBAAKBG0wawIBAQQg_lhIGNiI2MzoGhAgQf4y
+device_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAE2JdiHAmdL4_djLkCBr36axKHDyknhghZ
+
+owner_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEL-mMsJiEDNcDuUKDrk2wDzh8rl40jmCs
+####################################################################################################################################################
+
+
+------------------------------------
+private_authenticator_2
+------------------------------------
+Query...
+
+------------------------------------
+iot_device_1
+------------------------------------
+Receive: < (Ticket Object) >
+         ticket_protocol_verision: UREKA-1.0
+         ticket_type: QUERY
+(Z-1) PASS: TICKET_PROTOCOL_VERSION (UREKA-1.0)
+(Z-2) PASS: TYPE_QUERY_TICKET
+(E-Z) EXECUTE: QUERY_TICKET
+device_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAE2JdiHAmdL4_djLkCBr36axKHDyknhghZ
+owner_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEL-mMsJiEDNcDuUKDrk2wDzh8rl40jmCs

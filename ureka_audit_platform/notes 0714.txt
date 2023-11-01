@@ -1,0 +1,1 @@
+add owner and device id to contract selling data

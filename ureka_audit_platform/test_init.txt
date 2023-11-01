@@ -1,0 +1,54 @@
+(ureka-venv) jerry@jerry-vm:~/Ureka-Ticket-Module-master$ python3 ticket_module_test_initialization.py
+
+
++++ Ticket module <private_authenticator_1> need to be initailized... +++
+
++++ Ticket module <private_authenticator_2> need to be initailized... +++
+
++++ Ticket module <iot_device_1> need to be initailized... +++
+
+
+------------------------------------
+private_authenticator_1
+------------------------------------
+####################################################################################################################################################
+module_type: PRIVATE_ANTHENTICATOR
+
+device_priv_key_str: MIGEAgEAMBAGByqGSM49AgEGBSuBBAAKBG0wawIBAQQgnDn8fw-F_sygfCBVWD5g
+device_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEjLLDWW0D01Ug8Kms4uA2aBRimnhbJFzn
+####################################################################################################################################################
+
+------------------------------------
+private_authenticator_2
+------------------------------------
+####################################################################################################################################################
+module_type: PRIVATE_ANTHENTICATOR
+
+device_priv_key_str: MIGEAgEAMBAGByqGSM49AgEGBSuBBAAKBG0wawIBAQQgt69gkH_Pa2O_gKd4cbJU
+device_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEHWgTotC5AZk2JKyLbknBU7mCAGFty6m6
+####################################################################################################################################################
+
+------------------------------------
+private_authenticator_1
+------------------------------------
+
+------------------------------------
+iot_device_1
+------------------------------------
+Receive: < (Ticket Object) >
+         ticket_protocol_verision: UREKA-1.0
+         ticket_type: INITIALIZATION
+         holder_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEjLLDWW0D01Ug8Kms4uA2aBRimnhbJFzn
+(Z-1) PASS: TICKET_PROTOCOL_VERSION (UREKA-1.0)
+(Z-2) PASS: TYPE_INITIALIZATION_TICKET
+(E-Z) EXECUTE: INITIALIZATION_TICKET
+initialize_iot_device( )...
+####################################################################################################################################################
+module_type: IOT_DEVICE
+
+device_priv_key_str: MIGEAgEAMBAGByqGSM49AgEGBSuBBAAKBG0wawIBAQQgjr6aKrw-n7Ok0tXxoUMI
+device_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEs_4olp8SPvgngcpeE5JM3zp9p0Frpq30
+
+owner_pub_key_str: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEjLLDWW0D01Ug8Kms4uA2aBRimnhbJFzn
+####################################################################################################################################################
+(ureka-venv) jerry@jerry-vm:~/Ureka-Ticket-Module-master$

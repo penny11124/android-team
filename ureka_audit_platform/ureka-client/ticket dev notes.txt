@@ -1,0 +1,35 @@
+ticket actual spec
+
+
+Z1 + Z2 + Z3(optional) + Z4(optional) + E-Z, all as string
+
+So to purchase, I should send along at least:
+New owner id
+
+
+
+get unsigned ticket (from where?)
+
+owner does web3.eth.accounts.sign() -> gets a signature (using sha3 then SECP256K1)
+appends signature to end
+send over ethereum
+strip signature -> recover signature
+receiver use signature and stripped ticket to check using web3.eth.accounts.recover()
+get owner address
+but this binds ethereum keypair to ureka keypair, even though they're both SECP256K1 EC keypair
+
+
+how ureka-python does it:
+get digest by sha256 then sign SECP256K1
+
+
+no, can't do that.
+Private Authenticator should be decoupled from blockchain operation. we don't want people just using address as id, right?
+
+We absolutely do not want to re-invent another sign-verify function on solidity, right?
+There has to be a design pattern for this
+
+^Turns out there isn't. F
+
+
+{"device_id": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEs_4olp8SPvgngcpeE5JM3zp9p0Frpq30pgYgeIv0RuKKA_hBfCBGmIIPJ0bG4SElsZPb-pG10LBWIpRot9il4w==", "holder_id": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEjLLDWW0D01Ug8Kms4uA2aBRimnhbJFznDAxwxQUn82daklYrvhGYE4YmY-BEbYI1ZyxGm6NC-erm1PsHlX00sw==", "request_body": "{\"MANAGEMENT-TYPE\": \"NEW-OWNER\"}", "ticket_type": "MANAGEMENT"}

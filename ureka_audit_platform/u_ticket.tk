@@ -1,0 +1,7 @@
+< (Ticket Object) >
+ticket_protocol_verision: UREKA-1.0
+ticket_type: MANAGEMENT
+device_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEs_4olp8SPvgngcpeE5JM3zp9p0Frpq30
+holder_id: MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEHWgTotC5AZk2JKyLbknBU7mCAGFty6m6
+request_body: {"MANAGEMENT-TYPE": "NEW-OWNER"}
+issuer_signature: MEUCIQDDHZXz1VdxgDHkVevGoiZkc3_O0uhNXhvsuft4I-2EWAIgUBWU5zbh84nuXcEibLMoc34_kOXxE9ZqnBRJLJ8BwcE=

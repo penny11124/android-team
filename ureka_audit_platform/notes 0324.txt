@@ -1,0 +1,15 @@
+can I assume the client is on the ethereum network ALWAYS?
+I need oracle to handle emit to call user to get ticket, right?
+Push notification is centralized? Yes, as always.
+how big is uTicket and rTicket respectively anyways?
+should've just passed along as event and only in memory.
+saves LOADS in gas.
+but that requires client side.
+cache ticket client side maybe? refresh when manually required.
+use oracle to listen to events and create push notification to client, then let client use getPastLogs to retrive "actual" ticket.
+retrive ticket with web3.getPastLogs then filter?
+is it commercially feasible to store both ticket on chain (and pass along?)
+
+
+640k
+gas price avg 180-200 gwei

@@ -1,0 +1,191 @@
+{
+	"compiler": {
+		"version": "0.5.8+commit.23d335f2"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "ticket",
+						"type": "string"
+					}
+				],
+				"name": "upload_uticket",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "retrive_uticket",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "read_listing",
+				"outputs": [
+					{
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"name": "_item_price",
+						"type": "uint256"
+					},
+					{
+						"name": "_Seller",
+						"type": "address"
+					},
+					{
+						"name": "_Buyer",
+						"type": "address"
+					},
+					{
+						"name": "_sold",
+						"type": "bool"
+					},
+					{
+						"name": "_sale_closed",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "ticket",
+						"type": "string"
+					}
+				],
+				"name": "upload_rticket",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "purchase",
+				"outputs": [],
+				"payable": true,
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"payable": true,
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "sold_to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"name": "sold_price",
+						"type": "uint256"
+					}
+				],
+				"name": "item_sold",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "upload_time",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "uTicket",
+						"type": "string"
+					}
+				],
+				"name": "uTicket_uploaded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "retrive_time",
+						"type": "uint256"
+					}
+				],
+				"name": "uTicket_retrived",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"name": "upload_time",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"name": "uTicket",
+						"type": "string"
+					}
+				],
+				"name": "rTicket_uploaded",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ureka.sol": "UREKA_sale"
+		},
+		"evmVersion": "petersburg",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ureka.sol": {
+			"keccak256": "0x3ed4ee8e1dbea1d8ae252362d54c3adabba7a8c2995302e9a43e92f8257e6813",
+			"urls": [
+				"bzzr://441cf752f4d8c2ce830078e78e6d38ee4ba6efaf258407cc675b2d7e0794b69e"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,24 @@
+let accounts = await web3.eth.getAccounts()
+
+let data  = {"device_id": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEs_4olp8SPvgngcpeE5JM3zp9p0Frpq30pgYgeIv0RuKKA_hBfCBGmIIPJ0bG4SElsZPb-pG10LBWIpRot9il4w==", "holder_id": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEjLLDWW0D01Ug8Kms4uA2aBRimnhbJFznDAxwxQUn82daklYrvhGYE4YmY-BEbYI1ZyxGm6NC-erm1PsHlX00sw==", "request_body": "{\"MANAGEMENT-TYPE\": \"NEW-OWNER\"}", "ticket_type": "MANAGEMENT"}
+
+truffle(ganache)> web3.eth.sign(data, accounts[0])
+'0x6fcfe58d77a915610ccdd7f51b61f4a0dac6b101f22367e528c4477b39c2be95055bb9f28bf838ff54ede05680e162154cdce0f8f15ed96524dd7af9c2e62b9901'
+
+
+web3.eth.accounts.recover(data, sig)
+
+
+truffle(ganache)> web3.eth.sign("TestSig", accounts[0])
+'0xc8c264fb9532eff3f91cce0c98111081fe3c770e07a735414867df64835905286fb9508c0ccc1196498b31bee4c074ab07ba015fe1c4f0c9f143bc61100d6e8d01'
+
+
+
+
+0x42ebe05C0EAd94d1565E97308ccBC99780e52C9F
+web3.eth.sign('{"device_id": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEs_4olp8SPvgngcpeE5JM3zp9p0Frpq30pgYgeIv0RuKKA_hBfCBGmIIPJ0bG4SElsZPb-pG10LBWIpRot9il4w==", "holder_id": "MFYwEAYHKoZIzj0CAQYFK4EEAAoDQgAEjLLDWW0D01Ug8Kms4uA2aBRimnhbJFznDAxwxQUn82daklYrvhGYE4YmY-BEbYI1ZyxGm6NC-erm1PsHlX00sw==", "request_body": "{\"MANAGEMENT-TYPE\": \"NEW-OWNER\"}", "ticket_type": "MANAGEMENT"}', accounts[0])
+sig = 0x537d7a6f24c6754324e50b7021c0242d4b6e7416b3e545af5ad907bf86126afc3649ccf933e59f5fd8ff2967e42ad548e347a8fc1df702035cbdee72ed49c85b1b
+mhash = 0x14bff522110aa940380ff659c9891f1252ab3a9305c35be51e56754bf5ccdf63
+Verifies correctly
+
+
