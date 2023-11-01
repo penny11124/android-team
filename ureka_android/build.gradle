@@ -1,0 +1,16 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id 'com.android.application' version '7.1.0' apply false
+    id 'com.android.library' version '7.1.0' apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+// Compromise to run the app on API level 24. May not be effective.
+allprojects {
+    configurations.all {
+        resolutionStrategy.force 'org.objenesis:objenesis:2.6'
+    }
+}

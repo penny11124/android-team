@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ureka_android</string>
+    <string name="title_audit_platform">Audit Platform</string>
+    <string name="title_scanner">Scanner</string>
+    <string name="title_device">Device</string>
+<!--    <string name="blockchain_sk">42f09c43b0230474bfc6b4bd30efc79129b5a5b789aa51a01b62c882c5af3643</string>-->
+    <string name="blockchain_sk">6c43f8d312e1f22ec9d7adcbac314e7e26e1860fc6369cd61f62f22e033545c7</string>
+    <!--    <string name="blockchain_pk">041ff82246c32e9bb74fc19f6dc1677eb28844b20e7b379d57f259380a0d17a1baf612f75b07d2b780fa60332863f7051f28d7209036121ddc0ab7a88e289592e2</string>-->
+    <string name="blockchain_pk">0429b6730979c7220f06e00afffb253a723496f9765b071f35286abb4c7c48e7f658dff57cd8a981a5f853b0f50133142a1c3213260c11522256ef87d786feed45</string>
+    <!--    <string name="blockchain_address">0x6A5a3Fe9fc024692E19e92aa4e12eDEAE3782b88</string>-->
+    <string name="blockchain_address">0xc9A33ad0654323E1bB6c5feC32cD1286F1E89f2b</string>
+    <string name="blockchain_url">http://192.168.0.167:7545</string>
+    <string name="blockchain_url_socket">ws://192.168.0.167:7545</string>
+</resources>

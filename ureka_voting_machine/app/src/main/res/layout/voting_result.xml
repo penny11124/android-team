@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="option"
+            type="com.example.ureka_voting_machine.model.voting.Option" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/option_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{option.text}" />
+
+        <TextView
+            android:id="@+id/option_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{option.optionNum}" />
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_ble">
+
+    <fragment
+        android:id="@+id/navigation_voting"
+        android:name="com.example.ureka_voting_machine.ui.voting.VotingFragment"
+        android:label="@string/title_voting"
+        tools:layout="@layout/fragment_voting">
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_billing"
+        android:name="com.example.ureka_voting_machine.ui.voting.BillingFragment"
+        android:label="@string/title_billing"
+        tools:layout="@layout/fragment_billing" />
+
+    <fragment
+        android:id="@+id/navigation_ble"
+        android:name="com.example.ureka_voting_machine.ui.ble.BleFragment"
+        android:label="@string/title_ble"
+        tools:layout="@layout/fragment_ble" />
+
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="com.example.ureka_voting_machine.ui.setting.SettingFragment"
+        android:label="@string/title_setting"
+        tools:layout="@layout/fragment_setting" />
+</navigation>
