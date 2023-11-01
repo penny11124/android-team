@@ -16,22 +16,22 @@ import org.fidoalliance.fdo.protocol.Const;
 import org.fidoalliance.fdo.protocol.DispatchResult;
 
 public class TicketModule
-    implements OwnerModuleInterface, AuditPlatformInterface, DeviceModuleInterface, UserModuleInterface {
+        implements OwnerModuleInterface, AuditPlatformInterface, DeviceModuleInterface, UserModuleInterface {
     private Communication communication;
     private UService service;
     private UStorage storage;
 
     public TicketModule(
-        Communication communication,
-        UService service) {
+            Communication communication,
+            UService service) {
         this.communication = communication;
         this.service = service;
     }
 
     public TicketModule(
-        Communication communication,
-        UService service,
-        UStorage storage) {
+            Communication communication,
+            UService service,
+            UStorage storage) {
         this.communication = communication;
         this.service = service;
         this.storage = storage;
@@ -114,8 +114,8 @@ public class TicketModule
     public void applyTicket(Ticket ticket) {
         Composite tickeCose = ticket.toCoseComposite();
         Composite request = Composite.newArray().set(Const.SM_LENGTH, Const.DEFAULT).set(Const.SM_MSG_ID, Const.DEFAULT)
-            .set(Const.SM_PROTOCOL_VERSION, ticket.getProtocolVersion())
-            .set(Const.SM_PROTOCOL_INFO, Composite.fromObject(Const.EMPTY_BYTE)).set(Const.SM_BODY, tickeCose);
+                .set(Const.SM_PROTOCOL_VERSION, ticket.getProtocolVersion())
+                .set(Const.SM_PROTOCOL_INFO, Composite.fromObject(Const.EMPTY_BYTE)).set(Const.SM_BODY, tickeCose);
 
         DispatchResult requestDR = new DispatchResult(request, false);
 
@@ -124,9 +124,9 @@ public class TicketModule
             DispatchResult responseDR = this.communication.sendMessage(requestDR.getReply());
 
             request = Composite.newArray().set(Const.SM_LENGTH, Const.DEFAULT).set(Const.SM_MSG_ID, Const.DEFAULT)
-                .set(Const.SM_PROTOCOL_VERSION, requestDR.getReply().get(Const.SM_PROTOCOL_VERSION))
-                .set(Const.SM_PROTOCOL_INFO, requestDR.getReply().get(Const.SM_PROTOCOL_INFO))
-                .set(Const.SM_BODY, Const.EMPTY_MESSAGE);
+                    .set(Const.SM_PROTOCOL_VERSION, requestDR.getReply().get(Const.SM_PROTOCOL_VERSION))
+                    .set(Const.SM_PROTOCOL_INFO, requestDR.getReply().get(Const.SM_PROTOCOL_INFO))
+                    .set(Const.SM_BODY, Const.EMPTY_MESSAGE);
 
             // generate next request message(dispatch result) with the response
             boolean isDone = this.service.dispatch(responseDR.getReply(), request);
@@ -139,8 +139,8 @@ public class TicketModule
     public void applyTicket(Composite tickeCose) {
 
         Composite request = Composite.newArray().set(Const.SM_LENGTH, Const.DEFAULT).set(Const.SM_MSG_ID, Const.DEFAULT)
-            .set(Const.SM_PROTOCOL_VERSION, Constants.PROTOCOL_VERSION.getBytes())
-            .set(Const.SM_PROTOCOL_INFO, Composite.fromObject(Const.EMPTY_BYTE)).set(Const.SM_BODY, tickeCose);
+                .set(Const.SM_PROTOCOL_VERSION, Constants.PROTOCOL_VERSION.getBytes())
+                .set(Const.SM_PROTOCOL_INFO, Composite.fromObject(Const.EMPTY_BYTE)).set(Const.SM_BODY, tickeCose);
 
         DispatchResult requestDR = new DispatchResult(request, false);
 
@@ -148,9 +148,9 @@ public class TicketModule
         while (!requestDR.isDone()) {
             DispatchResult responseDR = this.communication.sendMessage(requestDR.getReply());
             request = Composite.newArray().set(Const.SM_LENGTH, Const.DEFAULT).set(Const.SM_MSG_ID, Const.DEFAULT)
-                .set(Const.SM_PROTOCOL_VERSION, requestDR.getReply().get(Const.SM_PROTOCOL_VERSION))
-                .set(Const.SM_PROTOCOL_INFO, requestDR.getReply().get(Const.SM_PROTOCOL_INFO))
-                .set(Const.SM_BODY, Const.EMPTY_MESSAGE);
+                    .set(Const.SM_PROTOCOL_VERSION, requestDR.getReply().get(Const.SM_PROTOCOL_VERSION))
+                    .set(Const.SM_PROTOCOL_INFO, requestDR.getReply().get(Const.SM_PROTOCOL_INFO))
+                    .set(Const.SM_BODY, Const.EMPTY_MESSAGE);
 
             // generate next request message(dispatch result) with the response
             boolean isDone = this.service.dispatch(responseDR.getReply(), request);
@@ -216,9 +216,9 @@ public class TicketModule
         // }
 
         response = Composite.newArray().set(Const.SM_LENGTH, Const.DEFAULT).set(Const.SM_MSG_ID, Const.DEFAULT)
-            .set(Const.SM_PROTOCOL_VERSION, request.get(Const.SM_PROTOCOL_VERSION))
-            .set(Const.SM_PROTOCOL_INFO, request.get(Const.SM_PROTOCOL_INFO))
-            .set(Const.SM_BODY, Const.EMPTY_MESSAGE);
+                .set(Const.SM_PROTOCOL_VERSION, request.get(Const.SM_PROTOCOL_VERSION))
+                .set(Const.SM_PROTOCOL_INFO, request.get(Const.SM_PROTOCOL_INFO))
+                .set(Const.SM_BODY, Const.EMPTY_MESSAGE);
 
         boolean isDone = this.service.dispatch(request, response);
         responseDR = new DispatchResult(response, isDone);
@@ -241,10 +241,10 @@ public class TicketModule
         rTicket.setHash1(hash);
 
         Composite response = Composite.newArray().set(Const.SM_LENGTH, Const.DEFAULT)
-            .set(Const.SM_MSG_ID, Constants.DONE)
-            .set(Const.SM_PROTOCOL_VERSION, rTicket.getProtocolVersion())
-            .set(Const.SM_PROTOCOL_INFO, Composite.fromObject(Const.EMPTY_BYTE))
-            .set(Const.SM_BODY, rTicket.toCoseComposite());
+                .set(Const.SM_MSG_ID, Constants.DONE)
+                .set(Const.SM_PROTOCOL_VERSION, rTicket.getProtocolVersion())
+                .set(Const.SM_PROTOCOL_INFO, Composite.fromObject(Const.EMPTY_BYTE))
+                .set(Const.SM_BODY, rTicket.toCoseComposite());
 
         DispatchResult responseDR = new DispatchResult(response, true);
 
@@ -278,7 +278,7 @@ public class TicketModule
 
     public Ticket issueTicket(PublicKey holderPublicKey, PublicKey devicePublicKey, Command command) {
         UTicket UTicket = new UTicket(
-            storage.getSessionNum() + 1, devicePublicKey, holderPublicKey);
+                storage.getSessionNum()+1, devicePublicKey, holderPublicKey);
         UTicket.setCommand(command);
         UTicket.setTicketType(TicketType.ACCESS);
         // UTicket.setTicketType(TicketType.ACCESS_SESSION);
@@ -290,7 +290,7 @@ public class TicketModule
 
     public Ticket issueInitTicket(PublicKey holderPublicKey, PublicKey devicePublicKey) {
         UTicket UTicket = new UTicket(
-            storage.getSessionNum(), devicePublicKey, holderPublicKey);
+                storage.getSessionNum(), devicePublicKey, holderPublicKey);
         UTicket.setCommand(null);
         UTicket.setTicketType(TicketType.INIT);
         UTicket.setValidCondition("validCondition".getBytes());
@@ -301,7 +301,7 @@ public class TicketModule
 
     public Ticket issueMangementTicket(PublicKey holderPublicKey, PublicKey devicePublicKey) {
         UTicket UTicket = new UTicket(
-            storage.getSessionNum(), devicePublicKey, holderPublicKey);
+                storage.getSessionNum(), devicePublicKey, holderPublicKey);
         UTicket.setCommand(null);
         UTicket.setTicketType(TicketType.INIT);
         UTicket.setValidCondition("validCondition".getBytes());

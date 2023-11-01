@@ -7,10 +7,3 @@ plugins {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-
-// Compromise to run the app on API level 24. May not be effective.
-allprojects {
-    configurations.all {
-        resolutionStrategy.force 'org.objenesis:objenesis:2.6'
-    }
-}

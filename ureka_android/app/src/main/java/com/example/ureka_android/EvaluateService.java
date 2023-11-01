@@ -42,7 +42,7 @@ public class EvaluateService {
         System.out.println("Function communication run time: " + excludeInSeconds + " seconds");
         System.out.println("Function " + name + " run time: " + durationInSeconds + " seconds");
         excludeTime = 0;
-//        System.out.println("Function " + name + " run time: " + durationInSeconds + " seconds");
+//      System.out.println("Function " + name + " run time: " + durationInSeconds + " seconds");
         return durationInSeconds;
     }
 }

@@ -384,7 +384,6 @@ public class BleViewModel extends AndroidViewModel {
 //            Log.d(TAG, "onCharacteristicWriteRequest: value "+Hex.toHexString(value));
             // 不分段
             if (!preparedWrite) {
-                // TODO: uncommented 1 line
                 characteristicValue.postValue(new String(Hex.toHexString(value)));
                 try {
                     if (characteristic.getUuid().equals(UREKA_PACKAGE_UUID)) {
@@ -394,7 +393,6 @@ public class BleViewModel extends AndroidViewModel {
 
                             EvaluateService.evaluateResult();
 //                            Log.d(TAG, "store u ticket to db. UTICKET: " + new String(deviceStorage.getUTicket().toBytes()));
-                            // TODO: uncommented 2 lines
                             deviceDao.updateUTicket(deviceStorage.getUTicket().toBytes());
                             deviceDao.updateRTicket(urekaCommunication.getMessage());
                             rticketCharacteristic.setValue(urekaCommunication.getMessage());
@@ -404,15 +402,13 @@ public class BleViewModel extends AndroidViewModel {
                         }
                     }
                     if (characteristic.getUuid().equals(UREKA_ADDRESS_UUID)) {
-                        // TODO: uncommented 2 lines
-                        addressCharacteristic.setValue(value);
-                        deviceDao.updateAddress(new String(value));
+//                        addressCharacteristic.setValue(value);
+//                        deviceDao.updateAddress(new String(value));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                // TODO: uncommented 1 line
-                urekaServer.notifyCharacteristicChanged(device, characteristic, false);
+//                urekaServer.notifyCharacteristicChanged(device, characteristic, false);
             }
             // 分段
             else {
@@ -559,11 +555,11 @@ public class BleViewModel extends AndroidViewModel {
         urekaCommunication.setMessage(data);
         // write ureka response into ureka communication message
         boolean isDone = UModule.receivePackage();
-        // get response message and save to vale
-//        Intent intent = new Intent();
-//        intent.setAction("COMMAND");
-//        intent.putExtra("COMMAND", commandExecution.getVoting().commandType.name());
-//        application.sendBroadcast(intent);
+//         get response message and save to vale
+        Intent intent = new Intent();
+        intent.setAction("COMMAND");
+        intent.putExtra("COMMAND", commandExecution.getVoting().commandType.name());
+        application.sendBroadcast(intent);
 
 //        voting.postValue(commandExecution.getVoting());
         if (!packageCharacteristic.setValue(urekaCommunication.getMessage())) {

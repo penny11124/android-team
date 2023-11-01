@@ -74,33 +74,34 @@ public class ScannerFragment extends Fragment {
 
     // qr code scan result
     private final ActivityResultLauncher<ScanOptions> barcodeLauncher = registerForActivityResult(new ScanContract(),
-        result -> {
-            this.devicePublicKeyString = result.getContents();
-            if (this.devicePublicKeyString != null) {
-                KeyFactory kf = null;
-                try {
-                    kf = KeyFactory.getInstance("EC");
-                    this.devicePublicKey = kf.generatePublic(
-                        new X509EncodedKeySpec(Base64.decode(this.devicePublicKeyString, Base64.DEFAULT)));
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
-                } catch (InvalidKeySpecException e) {
-                    e.printStackTrace();
+            result -> {
+                this.devicePublicKeyString = result.getContents();
+                if (this.devicePublicKeyString != null) {
+                    KeyFactory kf = null;
+                    try {
+                        kf = KeyFactory.getInstance("EC");
+                        this.devicePublicKey = kf.generatePublic(
+                                new X509EncodedKeySpec(Base64.decode(this.devicePublicKeyString, Base64.DEFAULT)));
+                    } catch (NoSuchAlgorithmException e) {
+                        e.printStackTrace();
+                    } catch (InvalidKeySpecException e) {
+                        e.printStackTrace();
+                    }
+                    if (bleViewModel.scan(this.devicePublicKeyString)) {
+                        // this.setEnabled(true);
+                    }
                 }
-                if (bleViewModel.scan(this.devicePublicKeyString)) {
-                    // this.setEnabled(true);
-                }
-            }
-        });
+            });
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.context = context;
+
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+            ViewGroup container, Bundle savedInstanceState) {
         blockchainViewModel = new ViewModelProvider(getActivity()).get(BlockchainViewModel.class);
         bleViewModel = new ViewModelProvider(getActivity()).get(BleViewModel.class);
 
@@ -128,8 +129,8 @@ public class ScannerFragment extends Fragment {
         initBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Log.d(TAG, "user pk: " + Hex.toHexString(userStorage.getPublicKey().getEncoded()));
-//                Log.d(TAG, "device pk: " + Hex.toHexString(devicePublicKey.getEncoded()));
+                Log.d(TAG, "user pk: " + Hex.toHexString(userStorage.getPublicKey().getEncoded()));
+                Log.d(TAG, "device pk: " + Hex.toHexString(devicePublicKey.getEncoded()));
                 Ticket ticket = UModule.issueInitTicket(userStorage.getPublicKey(), devicePublicKey);
                 Runnable runnable = new Runnable() {
                     @Override
@@ -162,7 +163,7 @@ public class ScannerFragment extends Fragment {
 
                 biometricPrompt = createBiometricPrompt(callback);
                 promptInfo = createPromptInfo("Init Ticket", "subject: ",
-                    Hex.toHexString(userStorage.getPublicKey().getEncoded()));
+                        Hex.toHexString(userStorage.getPublicKey().getEncoded()));
                 biometricPrompt.authenticate(promptInfo);
             }
         });
@@ -171,12 +172,12 @@ public class ScannerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Ticket ticket = UModule.issueTicket(userStorage.getPublicKey(), devicePublicKey,
-                    new DeviceCommand(CommandType.SETTING));
+                        new DeviceCommand(CommandType.SETTING));
                 BiometricPrompt.AuthenticationCallback callback = createAuthenticationCallback(ticket);
 
                 biometricPrompt = createBiometricPrompt(callback);
                 promptInfo = createPromptInfo("Setting", "subject: ",
-                    Hex.toHexString(userStorage.getPublicKey().getEncoded()));
+                        Hex.toHexString(userStorage.getPublicKey().getEncoded()));
                 biometricPrompt.authenticate(promptInfo);
 
             }
@@ -186,12 +187,12 @@ public class ScannerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Ticket ticket = UModule.issueTicket(userStorage.getPublicKey(), devicePublicKey,
-                    new DeviceCommand(CommandType.BILLING));
+                        new DeviceCommand(CommandType.BILLING));
                 BiometricPrompt.AuthenticationCallback callback = createAuthenticationCallback(ticket);
 
                 biometricPrompt = createBiometricPrompt(callback);
                 promptInfo = createPromptInfo("Billing", "subject: ",
-                    Hex.toHexString(userStorage.getPublicKey().getEncoded()));
+                        Hex.toHexString(userStorage.getPublicKey().getEncoded()));
                 biometricPrompt.authenticate(promptInfo);
             }
         });
@@ -200,12 +201,12 @@ public class ScannerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Ticket ticket = UModule.issueTicket(userStorage.getPublicKey(), devicePublicKey,
-                    new DeviceCommand(CommandType.VOTING));
+                        new DeviceCommand(CommandType.VOTING));
                 BiometricPrompt.AuthenticationCallback callback = createAuthenticationCallback(ticket);
 
                 biometricPrompt = createBiometricPrompt(callback);
                 promptInfo = createPromptInfo("Voting", "subject: ",
-                    Hex.toHexString(userStorage.getPublicKey().getEncoded()));
+                        Hex.toHexString(userStorage.getPublicKey().getEncoded()));
                 biometricPrompt.authenticate(promptInfo);
             }
         });
@@ -264,15 +265,15 @@ public class ScannerFragment extends Fragment {
 
     private BiometricPrompt.PromptInfo createPromptInfo(String title, String subtitle, String description) {
         BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
-            .setTitle(title) // e.g. "Sign in"
-            .setSubtitle(subtitle) // e.g. "Biometric for My App"
-            .setDescription(description) // e.g. "Confirm biometric to continue"
-            .setConfirmationRequired(false)
-            .setNegativeButtonText("cancel") // e.g. "Use Account Password"
-            .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_WEAK)
+                .setTitle(title) // e.g. "Sign in"
+                .setSubtitle(subtitle) // e.g. "Biometric for My App"
+                .setDescription(description) // e.g. "Confirm biometric to continue"
+                .setConfirmationRequired(false)
+                .setNegativeButtonText("cancel") // e.g. "Use Account Password"
+                .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_WEAK)
 
-            // .setDeviceCredentialAllowed(true)
-            .build();
+                // .setDeviceCredentialAllowed(true)
+                .build();
         return promptInfo;
     }
 
